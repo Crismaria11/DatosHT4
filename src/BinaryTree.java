@@ -47,7 +47,15 @@ public class BinaryTree<E> {
         return parent;
     }
 
-
+    public void setRight(BinaryTree<E> newRight)
+    // post: sets left subtree to newLeft
+    // re-parents newLeft if not null
+{
+    if (isEmpty()) return;
+    if (right != null && right.parent() == this) right.setParent(null);
+    right = newRight;
+    right.setParent(this);
+}
 
     public void setLeft(BinaryTree<E> newLeft) {
     // post: sets left subtree to newLeft
@@ -65,14 +73,14 @@ public class BinaryTree<E> {
         }
     }
 
+    private boolean isEmpty() {
+        return true;
+    }
+
     public Iterator<E> iterator() {
 
+        return null;
     }
-        // post: returns an in-order iterator of the elements
-
-    public boolean isLeftChild()
-        // post: returns true if this is a left child of parent
-
 
 
     public E value() {
