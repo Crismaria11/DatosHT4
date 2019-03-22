@@ -6,6 +6,7 @@ public class BinaryTree<E> {
     protected BinaryTree<E> parent; // parent of node
     protected BinaryTree<E> left, right; // children of node
 
+
     public BinaryTree() {
         // post: constructor that generates an empty node
 
@@ -41,8 +42,11 @@ public class BinaryTree<E> {
         return left;
     }
 
-    public BinaryTree<E> parent()
-    // post: returns reference to parent node, or null
+    public BinaryTree<E> parent(){
+        // post: returns reference to parent node, or null
+        return parent;
+    }
+
 
 
     public void setLeft(BinaryTree<E> newLeft) {
@@ -61,7 +65,9 @@ public class BinaryTree<E> {
         }
     }
 
-    public Iterator<E> iterator()
+    public Iterator<E> iterator() {
+
+    }
         // post: returns an in-order iterator of the elements
 
     public boolean isLeftChild()
@@ -78,6 +84,8 @@ public class BinaryTree<E> {
         // post: sets the value associated with this node
         val = value;
     }
+
+
 }
 
 
