@@ -1,3 +1,8 @@
+/**
+ * @author Abril Palencia y Cristina Bautista
+ * @version 22/03/2019
+ * La clase nodo, ayuda a implementar un nuevo nodo y buscar entre los nodos
+ */
 public class Node {
 
     int value;
@@ -47,3 +52,9 @@ public class Node {
     }
 
 }
+
+/*
+Baeldung (20 de Diciembre del 2018) Baeldung. Extraido de:
+    https://www.baeldung.com/java-binary-tree
+
+ */
