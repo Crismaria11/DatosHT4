@@ -13,7 +13,7 @@ public class Main {
         System.out.println();
         int cont = 0;
         String palabras;
-        String texto;
+        String oracion;
         String sCadena;
         BinaryTree<Association> dictionary = new BinaryTree<>();
 
@@ -36,6 +36,7 @@ public class Main {
                     }else if (!separador[i].equals("(") && !separador[i].equals(" ") && !separador[i].equals(")") && !separador[i].equals(",")) {
                         p += separador[i];
                     }
+
                 }
 
 
@@ -87,18 +88,28 @@ public class Main {
             BufferedReader br = new BufferedReader(fr);
             //separar y colocar las asociaciones en ArrayList
             while ((sCadena = br.readLine()) != null) {
-                String[] separate = texto.split("");
+                String[] separate = sCadena.split(" ");
                 //crear un ArrayList con las palabras de nuestro diccionario.
                 ArrayList<String> text = new ArrayList<>();
                 String l = "";
                 
                 for (int j = 0; j < separate.length; j++) {
-                    if (separate[j].equals("")) {
-                        texto.add(l);
+
+                    if (separate[j].equals(" ")) {
+                        text.add(l);
                         l = "";
-                        System.out.println(text);
+                    } else if (!separate[j].equals(" ")) {
+                        l += separate[j];
                     }
+                    text.add(dictionary.revisarSiHayTraduccion(separate[j]));
+
+                    //System.out.println(dictionary.revisarSiHayTraduccion(separate[j]));
+
+
                 }
+                System.out.println(text);
+
+
 
             }
         } catch (Exception e) {

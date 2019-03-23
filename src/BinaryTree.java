@@ -114,5 +114,20 @@ public class BinaryTree<E> {
         pal+=evaluarorden(nodo.right);
         return pal;
     }
+
+    public String revisarSiHayTraduccion(String traduccion) {
+        BinaryTree revisarArbol = this;
+
+        if (revisarArbol.val == null) {
+            return "*" + traduccion + "*";
+        } else if (((Association)revisarArbol.val).getEnglishKey().toString().equals(traduccion)){
+            return (String) ((Association)revisarArbol.val).getSpanishValue();
+        } else if (((Association)revisarArbol.val).getEnglishKey().toString().compareToIgnoreCase(traduccion) > 0) {
+            return revisarArbol.left.revisarSiHayTraduccion(traduccion);
+        } else if (((Association)revisarArbol.val).getEnglishKey().toString().compareToIgnoreCase(traduccion) < 0) {
+            return revisarArbol.right.revisarSiHayTraduccion(traduccion);
+        }
+        return null;
+    }
 }
 
