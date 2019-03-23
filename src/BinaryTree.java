@@ -100,6 +100,7 @@ public class BinaryTree<E> {
     }
 
     public String orden (BinaryTree raiz){
+
         return evaluarorden(raiz);
     }
 
@@ -114,37 +115,4 @@ public class BinaryTree<E> {
         return pal;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

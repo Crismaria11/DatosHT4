@@ -7,12 +7,14 @@ import java.util.ArrayList;
  * @author Abril, Cristina
  * @since 22/03/2019
  */
-public class Maim {
+public class Main {
     public static void main(String[] args) {
         System.out.println("Bienvenido a nuestro diccionario");
         System.out.println();
         int cont = 0;
         String palabras;
+        String texto;
+        String sCadena;
         BinaryTree<Association> dictionary = new BinaryTree<>();
 
         // Leer el archivo de texto. nuestro diccionario para mostrarlo en la consola.
@@ -79,6 +81,33 @@ public class Maim {
             e.printStackTrace();
             System.out.println("Error! Archivo de texto no encontrado");
         }
+
+        try {
+            FileReader fr = new FileReader("text.txt");
+            BufferedReader br = new BufferedReader(fr);
+            //separar y colocar las asociaciones en ArrayList
+            while ((sCadena = br.readLine()) != null) {
+                String[] separate = texto.split("");
+                //crear un ArrayList con las palabras de nuestro diccionario.
+                ArrayList<String> text = new ArrayList<>();
+                String l = "";
+                
+                for (int j = 0; j < separate.length; j++) {
+                    if (separate[j].equals("")) {
+                        texto.add(l);
+                        l = "";
+                        System.out.println(text);
+                    }
+                }
+
+            }
+        } catch (Exception e) {
+            //por si no encuentra el archivo
+            e.printStackTrace();
+            System.out.println("Error! Archivo de texto no encontrado");
+        }
+
+
         //mostrar nuestro diccionario
         System.out.println();
         System.out.println("Contenido de nuestro diccionario:");
@@ -86,6 +115,10 @@ public class Maim {
         System.out.println();
         System.out.println("traduccion de su texto.");
         System.out.println();
+
+
+
+
     }
 }
 

@@ -15,12 +15,14 @@ public class Association<K, V> {
 
     //para obtener la llave de mi diccionario. Palabra en ingles.
     public K getEnglishKey(){
+
         return englishKey;
     }
 
     //para obtener el valor de mi llave. Palabra en español.
 
     public V getSpanishValue() {
+
         return spanishValue;
     }
 
