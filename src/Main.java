@@ -102,14 +102,8 @@ public class Main {
                         l += separate[j];
                     }
                     text.add(dictionary.revisarSiHayTraduccion(separate[j]));
-
-                    //System.out.println(dictionary.revisarSiHayTraduccion(separate[j]));
-
-
                 }
                 System.out.println(text);
-
-
 
             }
         } catch (Exception e) {
