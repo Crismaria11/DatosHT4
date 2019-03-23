@@ -1,3 +1,8 @@
+/**
+ * Clase BinaryTree. todas las funciones de nuestro arbol binario. Guarda todos nuestros datos del diccionario. Funciona como una base de datos.
+ * @author Abril, Cristina
+ * @since 22/03/2019
+ */
 import java.util.Iterator;
 
 public class BinaryTree<E> {
@@ -47,23 +52,27 @@ public class BinaryTree<E> {
         return parent;
     }
 
-    public void setRight(BinaryTree<E> newRight)
-    // post: sets left subtree to newLeft
-    // re-parents newLeft if not null
-{
-    if (isEmpty()) return;
-    if (right != null && right.parent() == this) right.setParent(null);
-    right = newRight;
-    right.setParent(this);
-}
 
-    public void setLeft(BinaryTree<E> newLeft) {
+//agregar nodo
+    public void setLeft(BinaryTree<E> newLeft)
     // post: sets left subtree to newLeft
     // re-parents newLeft if not null
+    {
         if (isEmpty()) return;
         if (left != null && left.parent() == this) left.setParent(null);
         left = newLeft;
         left.setParent(this);
+    }
+
+    //agregar nodo
+    public void setRight(BinaryTree<E> newRight)
+    // post: sets left subtree to newLeft
+    // re-parents newLeft if not null
+    {
+        if (isEmpty()) return;
+        if (right != null && right.parent() == this) right.setParent(null);
+        right = newRight;
+        right.setParent(this);
     }
 
 
@@ -74,16 +83,13 @@ public class BinaryTree<E> {
     }
 
     private boolean isEmpty() {
-        return true;
-    }
-
-    public Iterator<E> iterator() {
-
-        return null;
+// si el arbol binario no tiene nada este retorna todo null.
+            return val==null&&left==null && right==null;
     }
 
 
-    public E value() {
+
+    public E value(){
         // post: returns value associated with this node
         return val;
     }
@@ -93,7 +99,20 @@ public class BinaryTree<E> {
         val = value;
     }
 
+    public String orden (BinaryTree raiz){
+        return evaluarorden(raiz);
+    }
 
+    public String evaluarorden(BinaryTree nodo){
+        String pal = "";
+        if (nodo.val==null){
+            return "";
+        }
+        pal+= evaluarorden(nodo.left);
+        pal+= nodo.val.toString()+"  ;  ";
+        pal+=evaluarorden(nodo.right);
+        return pal;
+    }
 }
 
 
